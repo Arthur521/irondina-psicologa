@@ -6,7 +6,7 @@ export const SITE = {
   country: "BR",
   phoneDisplay: "(62) 98428-6565",
   phoneIntl: "+5562984286565",
-  url: "https://irondinaassis.com.br",
+  url: "https://irondina-assis.vercel.app",
   email: "",
   description:
     "Psicóloga sistêmica em Goiânia. Terapia familiar, terapia de casal e família e atendimento a conflitos familiares. Um espaço para compreender vínculos e construir novas formas de se relacionar.",
