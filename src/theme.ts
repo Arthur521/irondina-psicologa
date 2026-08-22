@@ -68,12 +68,6 @@ const config = defineConfig({
     ".nav-link-light::after": {
       background: "#cfe6e5",
     },
-    "@media (prefers-reduced-motion: reduce)": {
-      "*, *::before, *::after": {
-        animationDuration: "0.01ms !important",
-        transitionDuration: "0.01ms !important",
-      },
-    },
   },
 });
 
