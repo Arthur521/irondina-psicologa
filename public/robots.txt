@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://irondina-assis.vercel.app/sitemap.xml
