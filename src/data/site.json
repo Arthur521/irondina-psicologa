@@ -1,0 +1,233 @@
+{
+  "brand": {
+    "name": "Irondina Assis",
+    "nameHtml": "Irondina Assis",
+    "tagline": "PSICOLOGIA SISTÊMICA",
+    "ariaLabel": "Irondina Assis, psicóloga sistêmica em Goiânia",
+    "documentTitle": "Psicóloga Sistêmica em Goiânia | Terapia Familiar e de Casal — Irondina Assis",
+    "logo": "/images/logo.png",
+    "logoWhite": "/images/logo.png",
+    "heroPerson": "/images/hero-familia.webp",
+    "heroPersonAlt": "Família caminhando junta — terapia familiar e sistêmica em Goiânia",
+    "ogImage": "/images/og.jpg",
+    "ogImageAlt": "Família reunida — terapia familiar em Goiânia com Irondina Assis",
+    "favicon": "/favicon.ico",
+    "faviconPng": "/favicon-32.png",
+    "appleTouchIcon": "/apple-touch-icon.png"
+  },
+  "contact": {
+    "email": "",
+    "phone": "(62) 98428-6565",
+    "phoneHref": "tel:+5562984286565",
+    "mailto": "",
+    "whatsapp": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar.",
+    "whatsappLabel": "Agendar no WhatsApp",
+    "place": "Goiânia · atendimento presencial e online",
+    "placeShort": "Goiânia, GO",
+    "modes": "Individual, casal e família"
+  },
+  "nav": {
+    "cta": "Agendar",
+    "groups": [
+      { "label": "Início", "href": "#inicio" },
+      { "label": "Atendimentos", "href": "#atendimentos" },
+      { "label": "Metodologia", "href": "#metodologia" },
+      { "label": "Sobre", "href": "#sobre" },
+      { "label": "Dúvidas", "href": "#faq" },
+      { "label": "Contato", "href": "#contato" }
+    ]
+  },
+  "ui": {
+    "back": "< Voltar",
+    "readArticle": "Ler artigo",
+    "learnMore": "Saiba mais",
+    "knowLarissa": "Conhecer Irondina",
+    "seeContact": "Ver contato",
+    "identityLabel": "IDENTIFICAÇÃO PROFISSIONAL",
+    "blogTitleSuffix": "Artigos | Irondina Assis",
+    "sobreTitleSuffix": "Sobre | Irondina Assis"
+  },
+  "home": {
+    "hero": {
+      "kicker": "Psicóloga sistêmica em Goiânia",
+      "title": "Talvez o problema não seja quem você é. Talvez seja a história que você aprendeu a repetir.",
+      "lead": "Terapia familiar, terapia de casal e família e cuidado a conflitos familiares — para compreender vínculos, padrões e relações que continuam se repetindo.",
+      "primaryCta": "Agendar no WhatsApp",
+      "primaryHref": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20conversar.",
+      "secondaryCta": "Entender a terapia familiar",
+      "secondaryHref": "#metodologia",
+      "cityImage": "/images/hero-familia.webp",
+      "cityImageAlt": "Família caminhando junta — terapia familiar e sistêmica em Goiânia",
+      "personImage": "/images/hero-familia.webp",
+      "personImageAlt": "Família caminhando junta — terapia familiar e sistêmica em Goiânia",
+      "proof": "Psicólogo para terapia familiar · casal e individual em Goiânia"
+    },
+    "patterns": {
+      "eyebrow": "Padrões que se repetem",
+      "title": "Tem coisas que não começam hoje.",
+      "items": [
+        "Você muda de relacionamento, mas sente a mesma dor.",
+        "Promete não repetir sua família, mas percebe velhos padrões aparecendo.",
+        "Ama alguém, mas parece que vocês já não conseguem se encontrar na conversa."
+      ],
+      "closing": "É sobre isso que podemos olhar juntos.",
+      "image": "/images/padroes-geracoes.webp",
+      "imageAlt": "Três gerações reunidas — conflitos e vínculos familiares na terapia sistêmica"
+    },
+    "quote": "Muitas vezes, não repetimos pessoas. Repetimos dinâmicas.",
+    "methodology": {
+      "eyebrow": "Metodologia",
+      "title": "O que é terapia sistêmica familiar",
+      "paragraphs": [
+        "A terapia sistêmica familiar olha para você dentro da sua história, dos seus vínculos e das relações que ajudaram a formar quem você é. Não para encontrar culpados — mas para compreender o que se move entre as pessoas.",
+        "Assim funciona a terapia familiar na prática: um espaço para ver padrões, abrir conversa e construir novas formas de se relacionar — em atendimento individual, de casal ou com a família."
+      ],
+      "cta": "Entender a terapia familiar",
+      "ctaHref": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Estou%20vivendo%20um%20momento%20que%20gostaria%20de%20entender%20melhor.%20Podemos%20conversar%3F",
+      "image": "/images/sistemica-vinculos.webp",
+      "imageAlt": "Família em terapia de casal e família — vínculos e conversa"
+    },
+    "about": {
+      "eyebrow": "Sobre",
+      "title": "Antes da Psicologia, eu já observava histórias.",
+      "paragraphs": [
+        "A arquitetura me ensinou a perceber espaços, identidade e pertencimento.",
+        "A Psicologia me ensinou a olhar para os vínculos. A diferença entre terapia individual e familiar está no foco: uma cuida da relação consigo; a outra, do que acontece entre as pessoas.",
+        "Toda casa conta uma história. Toda família também."
+      ],
+      "cta": "Falar com Irondina",
+      "ctaHref": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Gostaria%20de%20come%C3%A7ar.%20Como%20funciona%3F",
+      "image": "/images/sobre-casa.jpg",
+      "imageAlt": "Casa iluminada, com uma família caminhando pelo corredor",
+      "signName": "Irondina Assis",
+      "signRole": "Psicóloga sistêmica em Goiânia"
+    },
+    "services": {
+      "eyebrow": "Atendimentos",
+      "title": "Terapia individual, de casal e familiar",
+      "items": [
+        {
+          "number": "01",
+          "title": "Individual",
+          "text": "Terapia individual quando a relação que precisa de cuidado também é a relação consigo.",
+          "image": "/images/atendimento-individual.webp",
+          "imageAlt": "Mulher em terapia individual — cuidado consigo e com a própria história",
+          "href": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Tenho%20interesse%20em%20atendimento%20individual.%20Podemos%20conversar%3F",
+          "cta": "Agendar individual"
+        },
+        {
+          "number": "02",
+          "title": "Casais",
+          "text": "Terapia de casal e família para quando a briga não é pela louça — é por não se sentirem vistos.",
+          "image": "/images/atendimento-casais.webp",
+          "imageAlt": "Casal em terapia de casal — conversa e reconexão",
+          "href": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Tenho%20interesse%20em%20terapia%20de%20casal%20e%20fam%C3%ADlia.%20Podemos%20conversar%3F",
+          "cta": "Agendar casal"
+        },
+        {
+          "number": "03",
+          "title": "Famílias",
+          "text": "Psicóloga especialista em conflitos familiares, quando o sofrimento de uma pessoa atravessa toda a casa.",
+          "image": "/images/atendimento-familias.webp",
+          "imageAlt": "Família em terapia familiar — cuidado aos vínculos e conflitos",
+          "href": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Busco%20psic%C3%B3logo%20para%20terapia%20familiar.%20Podemos%20conversar%3F",
+          "cta": "Agendar família"
+        }
+      ]
+    },
+    "questions": {
+      "items": [
+        "Por que eu sempre acabo vivendo a mesma coisa?",
+        "Por que falar com quem eu amo ficou tão difícil?",
+        "Por que minha família ainda consegue me fazer sentir criança?",
+        "Por que eu digo que não quero repetir meus pais e acabo repetindo?"
+      ],
+      "closing": "Talvez você não precise apenas entender o que sente. Talvez precise compreender onde isso começou."
+    },
+    "faq": {
+      "eyebrow": "Dúvidas frequentes",
+      "title": "Perguntas que costumam chegar antes da conversa.",
+      "cta": "Falar no WhatsApp",
+      "ctaHref": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Tenho%20uma%20d%C3%BAvida%20sobre%20terapia%20familiar%20e%20gostaria%20de%20conversar.",
+      "items": [
+        {
+          "q": "Conflito familiar: o que fazer?",
+          "a": "Quando o conflito familiar se repete, o primeiro passo é sair da lógica de quem está certo. Na terapia familiar, olhamos para o que acontece entre as pessoas — regras, lealdades e padrões — para abrir espaço de conversa. Se a casa está em crise, falar com uma psicóloga especialista em conflitos familiares pode ajudar a organizar o próximo passo, sem buscar culpados."
+        },
+        {
+          "q": "Como lidar com filhos rebeldes ou adolescentes?",
+          "a": "Filhos adolescentes que se afastam ou se rebelam costumam estar em um lugar de família, não só de comportamento. A terapia de casal e família ajuda pais e filhos a se ouvirem de outro jeito, a negociar limites e a reduzir a briga constante. O foco não é “consertar” o adolescente, e sim compreender o que a relação está pedindo."
+        },
+        {
+          "q": "Mãe e filha não se dão bem. Dá para trabalhar isso?",
+          "a": "Sim. A relação mãe e filha carrega história, expectativas e feridas antigas. Na terapia sistêmica familiar, esse vínculo é olhado com cuidado: o que cada uma tenta proteger, o que não consegue dizer e o que se repete de geração em geração. Muitas vezes, não se trata de “não se gostarem”, e sim de não encontrarem um jeito novo de se encontrar."
+        },
+        {
+          "q": "Briga por herança na família precisa de psicologia?",
+          "a": "Briga por herança quase nunca é só sobre o bem material. É sobre reconhecimento, justiça e lugares na família. A psicologia pode ajudar a nomear o que está em jogo, reduzir o dano nas relações e criar um espaço de fala quando o diálogo em casa já se quebrou. Não substitui orientação jurídica, mas cuida do vínculo que a disputa costuma ferir."
+        },
+        {
+          "q": "O que é terapia sistêmica familiar?",
+          "a": "A terapia sistêmica familiar é um jeito de olhar o sofrimento dentro das relações. Em vez de tratar a pessoa isolada, a psicóloga sistêmica observa padrões, papéis e histórias que circulam na família. O objetivo é compreender o que se move entre as pessoas e abrir novas formas de se relacionar — em atendimento individual, de casal ou familiar."
+        },
+        {
+          "q": "Como funciona a terapia familiar?",
+          "a": "Na prática, a terapia familiar começa por uma conversa sobre o que está acontecendo agora e sobre a história que atravessa aquele pedido. As sessões podem incluir a família, o casal ou a pessoa, conforme o caso. Juntos, definimos o formato mais adequado. Em Goiânia, o agendamento com Irondina Assis acontece pelo WhatsApp."
+        },
+        {
+          "q": "Qual a diferença entre terapia individual e familiar?",
+          "a": "A terapia individual cuida da relação consigo: o que você sente, repete e precisa compreender na própria história. A terapia familiar (e a de casal) coloca o foco no que acontece entre as pessoas — comunicação, conflitos e papéis. Muitas vezes os dois caminhos se complementam. A escolha depende do que está pedindo cuidado neste momento."
+        }
+      ]
+    },
+    "steps": {
+      "title": "Começar pode ser mais simples do que parece.",
+      "image": "/images/passos-conversa.webp",
+      "imageAlt": "Pai e filha conversando com leveza em um parque",
+      "cta": "Falar com Irondina",
+      "ctaHref": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Gostaria%20de%20come%C3%A7ar.%20Como%20funciona%3F",
+      "items": [
+        "Você me chama no WhatsApp.",
+        "Conversamos sobre o que está acontecendo.",
+        "Definimos o formato de atendimento mais adequado."
+      ]
+    },
+    "statement": "Você não precisa continuar repetindo uma história apenas porque aprendeu a vivê-la assim.",
+    "contact": {
+      "eyebrow": "Contato",
+      "title": "Você não precisa continuar repetindo uma história apenas porque aprendeu a vivê-la assim.",
+      "lead": "Se algo aqui fez sentido para você, podemos começar por uma conversa.",
+      "cta": "Quero falar com Irondina",
+      "ctaHref": "https://wa.me/5562984286565?text=Ol%C3%A1%2C%20Irondina.%20Conheci%20seu%20trabalho%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos.",
+      "image": "/images/contato-conversa.webp",
+      "imageAlt": "Casal caminhando e conversando ao entardecer"
+    }
+  },
+  "footer": {
+    "tagline": "Psicóloga sistêmica em Goiânia",
+    "contactHeading": "Contato",
+    "serviceHeading": "Atendimento",
+    "legal": "© 2026 Irondina Assis · Psicologia Sistêmica",
+    "logo": "/images/logo.png",
+    "floatCta": "Agendar terapia familiar"
+  },
+  "categories": [],
+  "articles": [],
+  "blog": {
+    "eyebrow": "",
+    "title": "",
+    "lead": "",
+    "personImage": "/images/logo.png",
+    "personImageAlt": "Irondina Assis"
+  },
+  "sobre": {
+    "title": "Sobre Irondina Assis",
+    "eyebrow": "Sobre",
+    "lead": "Psicóloga sistêmica em Goiânia.",
+    "credentials": ["Psicóloga sistêmica", "Terapia familiar, de casal e individual"],
+    "topics": [],
+    "identity": "Irondina Assis — Psicologia Clínica Sistêmica",
+    "portraitImage": "/images/sobre-casa.jpg",
+    "portraitImageAlt": "Casa iluminada, com uma família caminhando pelo corredor"
+  }
+}

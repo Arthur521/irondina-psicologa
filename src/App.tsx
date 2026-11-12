@@ -1,28 +1,320 @@
-import { useMemo, useState } from 'react'
-import { ArrowRight, Check, ChevronRight, Mail, MapPin, Menu, Phone, Search, X } from 'lucide-react'
-import allArticles from './data/articles.json'
+import { useEffect, useState } from 'react'
+import { ChevronDown, Menu, Phone, X } from 'lucide-react'
+import siteData from './data/site.json'
 
-type Article = { slug: string; title: string; description: string; sourceUrl: string }
-const articles = allArticles as Article[]
-const categories = ['Todos', 'Autismo em adultos', 'Relacionamentos', 'Para profissionais']
+type Site = typeof siteData
+const site = siteData as Site
+const { brand, contact, nav, home, footer } = site
 
-function Header() {
-  const [open, setOpen] = useState(false)
-  const go = (href: string) => { setOpen(false); window.location.href = href }
-  return <header className="header"><a className="brand" href="/"><span>larissa</span> caramaschi<small>PSICOLOGIA CLÍNICA</small></a><nav className={open ? 'open' : ''}><a href="/#sobre">Sobre</a><a href="/#atendimentos">Atendimentos</a><a href="/blog">Artigos</a><a href="/#contato">Contato</a><a className="nav-cta" href="mailto:contato@larissacaramaschi.com">Agendar conversa</a></nav><button aria-label="Abrir menu" className="menu" onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button></header>
+function usePageMotion() {
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const seen = new WeakSet<Element>()
+    const io = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue
+        entry.target.classList.add('is-in')
+        io.unobserve(entry.target)
+      }
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' })
+    const bind = (node: HTMLElement) => {
+      if (seen.has(node)) return
+      seen.add(node)
+      if (reduce) { node.classList.add('is-in'); return }
+      io.observe(node)
+    }
+    const scan = () => document.querySelectorAll<HTMLElement>('[data-reveal]').forEach(bind)
+    scan()
+    let frame = 0
+    const mo = new MutationObserver(() => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; scan() }) })
+    mo.observe(document.body, { childList: true, subtree: true })
+    return () => { mo.disconnect(); io.disconnect(); if (frame) cancelAnimationFrame(frame) }
+  }, [])
 }
 
-function Footer() { return <footer><div><a className="brand" href="/"><span>larissa</span> caramaschi<small>PSICOLOGIA CLÍNICA</small></a><p>Uma psicologia que traduz, não patologiza.</p></div><div><b>Contato</b><a href="mailto:contato@larissacaramaschi.com">contato@larissacaramaschi.com</a><a href="tel:+5562981607422">(62) 98160-7422</a></div><div><b>Atendimento</b><p>Setor Marista · Goiânia, GO</p><p>Presencial e online</p></div><small className="legal">Este site oferece informação em psicologia e não substitui atendimento profissional ou de urgência.</small></footer> }
+function Header() {
+  usePageMotion()
+  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-function Home() { return <><Header/><main>
-  <section className="hero"><div className="hero-copy"><p className="eyebrow">PSICOLOGIA CLÍNICA EM GOIÂNIA E ONLINE</p><h1>Há espaço para viver <em>do seu jeito.</em></h1><p className="lead">Acompanhamento clínico para pessoas autistas adultas e relacionamentos neurodivergentes, com clareza, respeito e profundidade.</p><a className="button" href="#contato">Conhecer o atendimento <ArrowRight size={18}/></a></div><div className="hero-art"><img src="/images/larissa-og.png" alt="Larissa Caramaschi, psicóloga clínica"/></div></section>
-  <section id="sobre" className="split about"><div><p className="eyebrow">SOBRE O TRABALHO</p><h2>Ser compreendido muda o caminho.</h2></div><div><p>O processo terapêutico pode ser um espaço de tradução: das experiências que parecem difíceis de explicar, dos limites que precisam ser respeitados e das escolhas que fazem sentido para você.</p><p>Larissa Caramaschi é psicóloga clínica e terapeuta familiar, com experiência em autismo nível 1 de suporte na vida adulta e em relações afetivas neurodivergentes.</p><a className="text-link" href="/blog">Explorar os artigos <ChevronRight size={17}/></a></div></section>
-  <section id="atendimentos" className="services"><p className="eyebrow">CAMINHOS CLÍNICOS</p><h2>Atendimentos que partem da sua realidade.</h2><div className="cards"><article><span>01</span><h3>Psicoterapia individual</h3><p>Um espaço para autoconhecimento, diagnóstico tardio, regulação, autoestima e construção de uma vida possível.</p><a href="#contato">Saiba mais <ArrowRight size={16}/></a></article><article><span>02</span><h3>Casais neurodivergentes</h3><p>Conversas mais claras, acordos mais honestos e cuidado com os ritmos de cada pessoa no relacionamento.</p><a href="#contato">Saiba mais <ArrowRight size={16}/></a></article><article><span>03</span><h3>Famílias e rede de apoio</h3><p>Escuta para os vínculos, as transições e a convivência quando o diagnóstico chega na vida adulta.</p><a href="#contato">Saiba mais <ArrowRight size={16}/></a></article></div></section>
-  <section className="statement"><p>“Uma boa terapia não pede que você se encaixe. Ela ajuda a encontrar uma forma mais sua de estar no mundo.”</p></section>
-  <section className="split approach"><div><p className="eyebrow">COMO FUNCIONA</p><h2>Um processo feito em parceria.</h2></div><ol><li><b>Primeira conversa</b><span>Entendemos sua demanda, contexto e o que você espera do acompanhamento.</span></li><li><b>Construção de percurso</b><span>Definimos juntos os focos do processo e a frequência que faça sentido.</span></li><li><b>Clínica com autonomia</b><span>O cuidado se adapta à sua história — não o contrário.</span></li></ol></section>
-  <section id="contato" className="contact"><div><p className="eyebrow">VAMOS CONVERSAR?</p><h2>O primeiro passo pode ser simples.</h2><p>Para saber sobre horários, formato do atendimento e valores, entre em contato.</p></div><div className="contact-links"><a href="mailto:contato@larissacaramaschi.com"><Mail/> contato@larissacaramaschi.com</a><a href="tel:+5562981607422"><Phone/> (62) 98160-7422</a><p><MapPin/> Setor Marista, Goiânia · atendimento online</p></div></section>
-</main><Footer/></> }
+  useEffect(() => {
+    const sentinel = document.querySelector('.scroll-sentinel')
+    if (!sentinel) return
+    const io = new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting))
+    io.observe(sentinel)
+    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape') setOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => { io.disconnect(); window.removeEventListener('keydown', onKey) }
+  }, [])
 
-function Blog() { const [term, setTerm] = useState(''); const [category,setCategory] = useState('Todos'); const visible = useMemo(() => articles.filter(a => { const needle=(a.title+' '+a.description).toLowerCase(); const matches=needle.includes(term.toLowerCase()); const inCategory=category==='Todos'||(category==='Autismo em adultos' && /autismo|audhd|tea|diagnóstico|masking|camuflagem/i.test(needle))||(category==='Relacionamentos' && /casal|relacion|amor|vínculo|família/i.test(needle))||(category==='Para profissionais' && /profission|clínic|sessão|psicólog/i.test(needle)); return matches&&inCategory }),[term,category]); return <><Header/><main className="blog"><section className="blog-head"><p className="eyebrow">BIBLIOTECA CLÍNICA</p><h1>Artigos para dar nome ao que você vive.</h1><p>Reflexões sobre autismo na vida adulta, relações neurodivergentes e prática clínica.</p><div className="search"><Search size={19}/><input value={term} onChange={e=>setTerm(e.target.value)} placeholder="Buscar por tema, palavra ou pergunta"/></div></section><div className="filters">{categories.map(c=><button className={c===category?'active':''} onClick={()=>setCategory(c)} key={c}>{c}</button>)}</div><p className="result-count">{visible.length} artigos encontrados</p><section className="article-grid">{visible.map((a,i)=><article className="article-card" key={a.slug}><div className="card-number">{String(i+1).padStart(2,'0')}</div><p className="article-type">ARTIGO</p><h2>{a.title}</h2><p>{a.description || 'Leia a reflexão clínica completa no artigo original.'}</p><a href={a.sourceUrl} target="_blank" rel="noreferrer">Ler artigo <ArrowRight size={16}/></a></article>)}</section></main><Footer/></> }
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
 
-export default function App() { return window.location.pathname.startsWith('/blog') ? <Blog/> : <Home/> }
+  return <>
+    <div className="scroll-sentinel" aria-hidden="true" />
+    {open && <button type="button" className="nav-backdrop" aria-label="Fechar menu" onClick={() => setOpen(false)} />}
+    <header className={['header', scrolled ? 'is-scrolled' : '', open ? 'is-open' : ''].filter(Boolean).join(' ')}>
+      <div className="header-bar">
+        <a className="brand" href="#inicio" aria-label={brand.ariaLabel}>
+          <img className="brand-mark" src={brand.logo} alt="" width="1024" height="1024" />
+          <span className="brand-name">{brand.name}<small>{brand.tagline}</small></span>
+        </a>
+        <nav className={open ? 'open' : ''}>
+          {nav.groups.map(group => (
+            <a href={group.href} key={group.label} onClick={() => setOpen(false)}>{group.label}</a>
+          ))}
+          <a className="nav-cta" href={contact.whatsapp} target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>{nav.cta}</a>
+        </nav>
+        <button aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open} className="menu" onClick={() => setOpen(!open)}>
+          {open ? <X /> : <Menu />}
+        </button>
+      </div>
+    </header>
+  </>
+}
+
+function Hero() {
+  return (
+    <section className="hero hero-bleed" id="inicio" aria-label={brand.ariaLabel}>
+      <div className="hero-scene" aria-hidden="true">
+        <img className="hero-city" src={home.hero.cityImage} alt="" width="1600" height="900" />
+        <div className="hero-veil" />
+      </div>
+      <div className="hero-grid hero-grid-solo">
+        <div className="hero-copy">
+          <p className="hero-kicker">{home.hero.kicker}</p>
+          <span className="hero-rule" />
+          <h1>{home.hero.title}</h1>
+          <p className="hero-lead">{home.hero.lead}</p>
+          <div className="hero-actions">
+            <a className="hero-btn hero-btn-primary" href={home.hero.primaryHref} target="_blank" rel="noreferrer">{home.hero.primaryCta}</a>
+            <a className="hero-btn hero-btn-secondary" href={home.hero.secondaryHref}>{home.hero.secondaryCta}</a>
+          </div>
+          <p className="hero-proof">{home.hero.proof}</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function Patterns() {
+  const section = home.patterns
+  return (
+    <section className="split about patterns" id="padroes">
+      <img className="about-photo" data-reveal src={section.image} alt={section.imageAlt} width="1200" height="900" />
+      <div className="about-copy" data-reveal="1">
+        <p className="eyebrow">{section.eyebrow}</p>
+        <h2>{section.title}</h2>
+        <ul className="pattern-list">
+          {section.items.map(item => <li key={item}>{item}</li>)}
+        </ul>
+        <p className="pattern-closing">{section.closing}</p>
+      </div>
+    </section>
+  )
+}
+
+function Quote() {
+  return (
+    <section className="statement quote-band" aria-label="Citação">
+      <p data-reveal>“{home.quote}”</p>
+    </section>
+  )
+}
+
+function Methodology() {
+  const section = home.methodology
+  return (
+    <section className="split about" id="metodologia">
+      <div className="about-copy" data-reveal>
+        <p className="eyebrow">{section.eyebrow}</p>
+        <h2>{section.title}</h2>
+        {section.paragraphs.map(paragraph => <p key={paragraph.slice(0, 48)}>{paragraph}</p>)}
+        <a className="text-link" href={section.ctaHref} target="_blank" rel="noreferrer">{section.cta}</a>
+      </div>
+      <img className="about-photo" data-reveal="1" src={section.image} alt={section.imageAlt} width="1200" height="900" />
+    </section>
+  )
+}
+
+function Services() {
+  const section = home.services
+  return (
+    <section id="atendimentos" className="services">
+      <p className="eyebrow" data-reveal>{section.eyebrow}</p>
+      <h2 data-reveal="1">{section.title}</h2>
+      <div className="service-grid">
+        {section.items.map((item, index) => (
+          <article key={item.title} data-reveal={String(index + 1)}>
+            <img src={item.image} alt={item.imageAlt} width="800" height="600" />
+            <span className="card-number">{item.number}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+            <a href={item.href} target="_blank" rel="noreferrer">{item.cta}</a>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function About() {
+  const section = home.about
+  return (
+    <section className="split about" id="sobre">
+      <img className="about-photo" data-reveal src={section.image} alt={section.imageAlt} width="1200" height="900" />
+      <div className="about-copy" data-reveal="1">
+        <p className="eyebrow">{section.eyebrow}</p>
+        <h2>{section.title}</h2>
+        {section.paragraphs.map(paragraph => <p key={paragraph.slice(0, 48)}>{paragraph}</p>)}
+        <div className="about-sign">
+          <strong>{section.signName}</strong>
+          <span>{section.signRole}</span>
+        </div>
+        <a className="text-link" href={section.ctaHref} target="_blank" rel="noreferrer">{section.cta}</a>
+      </div>
+    </section>
+  )
+}
+
+function Questions() {
+  const section = home.questions
+  return (
+    <section className="questions" aria-label="Perguntas que ecoam">
+      <ul>
+        {section.items.map((item, index) => (
+          <li key={item} data-reveal={String(index)}>{item}</li>
+        ))}
+      </ul>
+      <p data-reveal="1">{section.closing}</p>
+    </section>
+  )
+}
+
+function Faq() {
+  const section = home.faq
+  const [open, setOpen] = useState<number | null>(0)
+  return (
+    <section id="faq" className="faq">
+      <div className="faq-head" data-reveal>
+        <p className="eyebrow">{section.eyebrow}</p>
+        <h2>{section.title}</h2>
+      </div>
+      <div className="faq-list" data-reveal="1">
+        {section.items.map((item, index) => {
+          const isOpen = open === index
+          return (
+            <div className={['faq-item', isOpen ? 'is-open' : ''].filter(Boolean).join(' ')} key={item.q}>
+              <button type="button" aria-expanded={isOpen} onClick={() => setOpen(isOpen ? null : index)}>
+                <span>{item.q}</span>
+                <ChevronDown size={18} aria-hidden="true" />
+              </button>
+              <div className="faq-answer" hidden={!isOpen}>
+                <p>{item.a}</p>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+      <a className="button" href={section.ctaHref} target="_blank" rel="noreferrer" data-reveal>{section.cta}</a>
+    </section>
+  )
+}
+
+function Steps() {
+  const section = home.steps
+  return (
+    <section className="split approach" id="passos">
+      <div data-reveal>
+        <h2>{section.title}</h2>
+        <ol>
+          {section.items.map((item, index) => (
+            <li key={item}>
+              <b>{String(index + 1).padStart(2, '0')}</b>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ol>
+        <a className="button" href={section.ctaHref} target="_blank" rel="noreferrer">{section.cta}</a>
+      </div>
+      <img className="about-photo" data-reveal="1" src={section.image} alt={section.imageAlt} width="1200" height="900" />
+    </section>
+  )
+}
+
+function Contact() {
+  const section = home.contact
+  return (
+    <section id="contato" className="contact">
+      <div data-reveal>
+        <p className="eyebrow">{section.eyebrow}</p>
+        <h2>{section.title}</h2>
+        <p>{section.lead}</p>
+        <a className="button" href={section.ctaHref} target="_blank" rel="noreferrer">{section.cta}</a>
+        <div className="contact-links">
+          <a href={contact.whatsapp} target="_blank" rel="noreferrer">
+            <Phone size={18} aria-hidden="true" />
+            {contact.phone}
+          </a>
+          <p>{contact.place}</p>
+        </div>
+      </div>
+      <img className="about-photo" data-reveal="1" src={section.image} alt={section.imageAlt} width="1200" height="900" />
+    </section>
+  )
+}
+
+function Footer() {
+  return (
+    <footer>
+      <div data-reveal>
+        <a className="brand" href="#inicio" aria-label={brand.ariaLabel}>
+          <img className="brand-mark" src={footer.logo} alt="" width="1024" height="1024" />
+          <span className="brand-name">{brand.name}<small>{brand.tagline}</small></span>
+        </a>
+        <p>{footer.tagline}</p>
+      </div>
+      <div data-reveal="1">
+        <b>{footer.contactHeading}</b>
+        <a href={contact.whatsapp} target="_blank" rel="noreferrer">{contact.phone}</a>
+      </div>
+      <div data-reveal="2">
+        <b>{footer.serviceHeading}</b>
+        <p>{contact.placeShort}</p>
+        <p>{contact.modes}</p>
+      </div>
+      <nav className="footer-nav" data-reveal="1" aria-label="Rodapé">
+        {nav.groups.map(group => <a href={group.href} key={group.label}>{group.label}</a>)}
+      </nav>
+      <small className="legal" data-reveal="1">{footer.legal}</small>
+      <a className="float-cta" href={contact.whatsapp} target="_blank" rel="noreferrer">{footer.floatCta}</a>
+    </footer>
+  )
+}
+
+export default function App() {
+  useEffect(() => {
+    document.title = brand.documentTitle
+  }, [])
+
+  return (
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Patterns />
+        <Quote />
+        <Methodology />
+        <Services />
+        <About />
+        <Questions />
+        <Faq />
+        <Steps />
+        <Contact />
+      </main>
+      <Footer />
+    </>
+  )
+}
